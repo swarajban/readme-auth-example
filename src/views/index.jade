@@ -1,0 +1,21 @@
+extends layout
+
+block title
+	title ReadMe JWT Auth
+
+block content
+	div.row
+		if user
+			p #{user.email} logged in
+			a.btn.btn-danger(href='/logout') Logout
+
+		else
+			a.btn.btn-primary(href='/login') Login
+	div.row
+		h1 ReadMe JWT Auth Example
+		h2 Hello: #{message}
+
+	div.row
+		if user
+			a(href='/docs') Docs
+

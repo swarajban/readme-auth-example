@@ -7,10 +7,11 @@ import session from 'express-session';
 import bodyParser from 'body-parser';
 import passport from 'passport';
 import LocalStrategy from 'passport-local';
-const ReadMeAuth = require('readme-auth-dev')(process.env.README_PROJECT_URL, process.env.README_JWT_SECRET);
-
+import ReadMeAuth from 'readme-auth-dev';
+const MyReadMeAuth = new ReadMeAuth(process.env['README_PROJECT_URL'], process.env['README_PROJECT_SECRET']);
 
 import { USERS } from './users';
+
 
 const app = express();
 
@@ -101,7 +102,7 @@ app.get('/docs', isAuthenticated, (req, res) => {
     email: req.user.email,
     name: req.user.name
   };
-  const readMeAuthUrl = ReadMeAuth.getAuthUrl(userPayload);
+  const readMeAuthUrl = MyReadMeAuth.getAuthUrl(userPayload);
   res.render('docs', {
     readMeAuthUrl: readMeAuthUrl
   });

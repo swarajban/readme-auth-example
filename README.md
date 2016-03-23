@@ -13,6 +13,7 @@ This installs npm dependencies, transpiles JS, & copies over *.jade templates to
   1. Set the `README_PROJECT_URL` env variable in `.env` based on your ReadMe project's URL. Usually something like `myproject.readme.io`
   1. Set the `README_PROJECT_SECRET` env variable in `.env` based on your ReadMe project's secret in the admin dashboard
   1. Start `readme-auth-example`'s server with
+    
     ```
     $ ./run_me.sh
     ```
